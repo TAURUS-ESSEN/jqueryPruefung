@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabe3</title>
+    <style>
+        li {
+        cursor: pointer;
+        padding: 5px;
+        }
+
+    .selected {
+        background-color: lightblue;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <h1>Ohne jquery</h1>
+    <ul id="woche">
+        <li>Montag </li>
+        <li>Dienstag</li>
+        <li>Mittwoch</li>
+        <li>Donnerstag</li>
+        <li>Freitag</li>
+        <li>Samstag</li>
+        <li>Sonntag</li>
+    </ul>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const ul = document.getElementById("woche");
+        const liTags = ul.querySelectorAll("li");
+        
+        liTags.forEach(li => {
+            li.addEventListener("click", () => {
+                liTags.forEach(item => item.classList.remove("selected"));
+                li.classList.add("selected");
+            });
+        })
+    });
+    
+    </script>    
+</body>
+</html>

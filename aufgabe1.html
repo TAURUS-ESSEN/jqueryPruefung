@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabe1</title>
+    <style>
+        nav ul {
+            list-style: none; display: flex; gap: 20px; background-color: lightgrey; padding: 10px; font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="nav"></nav>
+    </header>
+    <script>
+        const menu = {
+            "index.html": "Startseite",
+            "ueber-uns.html": "Über uns",
+            "produkte.html": "Produkte",
+            "info.html": "Info",
+            "support.html": "Support",
+            "impressum.html": "Impressum"
+        };
+        document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.getElementById("nav");
+        const ul = document.createElement("ul");
+        for (const [link, text] of Object.entries(menu)) {
+            const li = document.createElement("li");
+            const  aElement = document.createElement("a");
+            aElement.href = link;
+            aElement.textContent = text;
+            li.appendChild(aElement);
+            ul.appendChild(li);
+        }
+        nav.appendChild(ul);
+        });
+    </script>
+</body>
+</html>

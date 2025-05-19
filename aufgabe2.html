@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgabe2</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        li {
+        cursor: pointer;
+        padding: 5px;
+        }
+
+    .selected {
+        background-color: lightblue;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <ul id="woche">
+        <li>Montag </li>
+        <li>Dienstag</li>
+        <li>Mittwoch</li>
+        <li>Donnerstag</li>
+        <li>Freitag</li>
+        <li>Samstag</li>
+        <li>Sonntag</li>
+    </ul>
+
+<script>
+    $(document).ready(function() {
+    $('#woche li').click(function() {
+        $('#woche li').removeClass('selected'); 
+        $(this).addClass('selected'); 
+    });
+    });
+</script>
+</body>
+</html>

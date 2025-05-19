@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabe4</title>
+</head>
+<body>
+    <label for="textwahl">Wähle einen Text:</label>
+    <select id="textwahl">
+        <option value=""> *Bitte auswählen* </option>
+        <option value="text1.txt">Text 1</option>
+        <option value="text2.txt">Text 2</option>
+        <option value="text3.txt">Text 3</option>
+    </select>
+    <div id="ausgabe" style = "   margin-top:20px;  border:1px solid #ccc;  padding:10px; font-size: 1em;"></div>
+<script defer>
+    document.getElementById("textwahl").addEventListener("change", function () {
+    const textFile = this.value;
+    const ausgabeDiv = document.getElementById("ausgabe");
+    if (textFile === "") {
+        ausgabeDiv.textContent = "";
+        return;
+    }
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", textFile, true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            ausgabeDiv.textContent = xhr.responseText;
+        } else {
+        ausgabeDiv.textContent = "Fehler beim Laden";
+        }
+    };
+    xhr.onerror = function () {
+        ausgabeDiv.textContent = "Netzwerkfehler.";
+    };
+    xhr.send();
+});
+
+</script>
+</body>
+</html>
